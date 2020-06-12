@@ -1,6 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class FrmCompany
+    
     Sub Reset()
 
         txtTIN.Text = ""
@@ -17,22 +18,6 @@ Public Class FrmCompany
         btnDelete.Enabled = False
         txtHotelName.Focus()
     End Sub
-    Private Sub txtTicketFooterMessage_TextChanged(sender As Object, e As EventArgs) Handles txtTicketFooterMessage.TextChanged
-
-    End Sub
-
-    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
-
-    End Sub
-
-    Private Sub Label15_Click(sender As Object, e As EventArgs) Handles Label15.Click
-
-    End Sub
-
-    Private Sub txtStartBillNo_TextChanged(sender As Object, e As EventArgs) Handles txtStartBillNo.TextChanged
-
-    End Sub
-
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         Reset()
     End Sub
@@ -67,17 +52,8 @@ Public Class FrmCompany
             ConnDB()
             cmd = New OleDbCommand(sqL, conn)
             cmd.Connection = conn
-            'cmd.Parameters.AddWithValue("@d1", txtHotelName.Text)
-            'cmd.Parameters.AddWithValue("@d2", txtAddressLine1.Text)
-            'cmd.Parameters.AddWithValue("@d3", txtContactNo.Text)
-            'cmd.Parameters.AddWithValue("@d4", txtEmailID.Text)
-            'cmd.Parameters.AddWithValue("@d5", txtTIN.Text)
-            'cmd.Parameters.AddWithValue("@d6", txtTicketFooterMessage.Text)
-            'cmd.Parameters.AddWithValue("@d7", txtStartBillNo.Text)
             cmd.ExecuteNonQuery()
             conn.Close()
-            'Dim st As String = "Empresa adicionada '" & txtHotelName.Text & "' info"
-            'LogFunc(lblUser.Text, st)
             MessageBox.Show("Guardado com sucesso", "Empresa Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             btnSave.Enabled = False
             Getdata()
@@ -117,17 +93,9 @@ Public Class FrmCompany
             sqL = "Update Company set HotelName = '" & txtHotelName.Text & "', AddressLine1 = '" & txtAddressLine1.Text & "', ContactNo = '" & txtContactNo.Text & "', EmailID = '" & txtEmailID.Text & "', Nuit = '" & txtTIN.Text & "'  where ID=" & txtID.Text & ""
             ConnDB()
             cmd = New OleDbCommand(sqL, conn)
-            cmd.Connection = conn
-            'cmd.Parameters.AddWithValue("@d1", txtHotelName.Text)
-            'cmd.Parameters.AddWithValue("@d2", txtAddressLine1.Text)
-            'cmd.Parameters.AddWithValue("@d3", txtContactNo.Text)
-            'cmd.Parameters.AddWithValue("@d4", txtEmailID.Text)
-            'cmd.Parameters.AddWithValue("@d5", txtTIN.Text)
-            'cmd.Parameters.AddWithValue("@d6", txtTicketFooterMessage.Text)
+            cmd.Connection = con
             cmd.ExecuteNonQuery()
             conn.Close()
-            'sqL = "updated the restaurant '" & txtHotelName.Text & "' info"
-            'LogFunc(lblUser.Text, sqL)
             MessageBox.Show("Actualizado com sucesso", "Empresa Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
             btnUpdate.Enabled = False
             Getdata()
@@ -230,7 +198,6 @@ Public Class FrmCompany
                 txtContactNo.Text = dr.Cells(3).Value.ToString()
                 txtEmailID.Text = dr.Cells(4).Value.ToString()
                 txtTIN.Text = dr.Cells(5).Value.ToString()
-                'txtTicketFooterMessage.Text = dr.Cells(6).Value.ToString()
                 txtStartBillNo.Text = dr.Cells(6).Value.ToString()
                 btnUpdate.Enabled = True
                 btnSave.Enabled = False
