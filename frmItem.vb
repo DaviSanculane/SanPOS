@@ -295,7 +295,6 @@ Public Class frmItem
             cmd.Parameters.AddWithValue("@d1", Val(txtItemNo.Text))
             RowsAffected = cmd.ExecuteNonQuery()
             If RowsAffected > 0 Then
-                'Dim st As String = "deleted the restaurant '" & txtHotelName.Text & "' info"
                 MessageBox.Show("Successfully deleted", "Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Else
