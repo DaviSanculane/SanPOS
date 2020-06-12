@@ -27,7 +27,6 @@ Public Class frmPOS
             cmd = New OleDbCommand(sqL, conn)
             dr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
 
-
             If dr.Read = True Then
                
                 If Val(txtQuantity.Text) <= dr(0) Then
@@ -331,10 +330,6 @@ Public Class frmPOS
     Private Sub btnCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCustomer.Click
         isSearchCust = True
         frmLoadCustomer.Show()
-    End Sub
-
-    Private Sub dgw_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgw.CellContentClick
-
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
