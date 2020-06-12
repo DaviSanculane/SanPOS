@@ -205,7 +205,6 @@ Public Class frmCustomer
             cmd.Parameters.AddWithValue("@d1", Val(txtCustNo.Text))
             RowsAffected = cmd.ExecuteNonQuery()
             If RowsAffected > 0 Then
-                'Dim st As String = "deleted the restaurant '" & txtHotelName.Text & "' info"
                 MessageBox.Show("Cliente apagado com sucesso", "Resgistro", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Else
@@ -214,7 +213,6 @@ Public Class frmCustomer
             End If
             If conn.State = ConnectionState.Open Then
                 conn.Close()
-
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.[Error])
