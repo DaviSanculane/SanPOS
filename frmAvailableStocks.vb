@@ -43,10 +43,6 @@ Public Class frmAvailableStocks
         frmPrintAvailableStocks.Show()
     End Sub
 
-    Private Sub Label2_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Search1()
         Dim totalItems As Integer
         Dim totalstock As Integer
